@@ -66,6 +66,7 @@ function newGame(){
 	// Os box is highlighted
 	player1.classList.add("active");
 	player2.classList.remove("active");
+	turn = "O";
 }
 /* shows the start screen with a button to launch a new game */
 function startScreen(){
