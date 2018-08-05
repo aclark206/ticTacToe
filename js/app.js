@@ -1,7 +1,6 @@
 // selectors & global variables
 const player1 = document.getElementById("player1");
 const player2 = document.getElementById("player2");
-var turn = "O";  //Holds whose turn it is.  Will either be O or X.  At start is O.
 const board = document.querySelector(".boxes");
 const startDiv = document.getElementById("start");
 const winDiv = document.getElementById("finish");
@@ -11,6 +10,7 @@ const newGameButton = document.getElementById("newGameButton");
 const winMsg = document.querySelector(".message");
 const boxes = document.querySelectorAll(".box");
 
+var turn = "O";  //Holds whose turn it is.  Will either be O or X.  At start is O.
 var gameBoard = [
 [" "," "," "],
 [" "," "," "],
