@@ -10,7 +10,7 @@ const newGameButton = document.getElementById("newGameButton");
 const winMsg = document.querySelector(".message");
 const boxes = document.querySelectorAll(".box");
 
-var turn = "O";  //Holds whose turn it is.  Will either be O or X.  At start is O.
+var turn = "O";  //Holds whose turn it is.  Will either be O or X.  O starts.
 var gameBoard = [
 [" "," "," "],
 [" "," "," "],
@@ -19,7 +19,9 @@ var gameBoard = [
 var numTurns = 0;  	// keeps track of how many turns there have been. Used to test for ties.
 
 
-/*   On hover over box  */
+/*   On hover over box  
+	Displays a greyed out marker of the current player on mouse over
+*/
 board.addEventListener("mouseover", (e) => {
 	
 	if (!e.target.classList.contains('marked')){
@@ -29,7 +31,9 @@ board.addEventListener("mouseover", (e) => {
 	}
 });
 
-/*   On hover over box  */
+/*   On mouseout 
+	as the mouse leaves a box, removes the greyed out marker
+*/
 board.addEventListener("mouseout", (e) => {
 	// remove the hover-over background image
 	
@@ -37,7 +41,9 @@ board.addEventListener("mouseout", (e) => {
 });
 
 
-
+/*
+Switches game play over to the other player
+*/
 function turnOver() {
 	if (turn === "O"){
 		turn = "X" 
@@ -52,6 +58,9 @@ function turnOver() {
 	
 }
 
+/*
+Prepares the board for a new game
+*/
 function newGame(){
 	//show the tic tac toe board
 	boardDiv.style.display = "block";
@@ -68,6 +77,8 @@ function newGame(){
 	player2.classList.remove("active");
 	turn = "O";
 }
+
+
 /* shows the start screen with a button to launch a new game */
 function startScreen(){
 	
@@ -80,6 +91,7 @@ function startScreen(){
 	//hide the win screen
 	winDiv.style.display = "none";
 }
+
 
 /* 
 	marks the board after an X or O is placed
@@ -150,6 +162,8 @@ function checkWin(){
 	
 }// end function checkWin
 
+// checks to see if the game has ended in a tie
+// if the game is a tie, returns true. if the game is still on, returns false
 function checkTie(){
 
 	if (numTurns == 9)
@@ -246,11 +260,12 @@ board.addEventListener("click", (e) => {
 	}
 });
 
-// on click button
+// start button handler
 startButton.addEventListener("click", (e) => {
 	newGame();
 });
 
+// new game button handler
 newGameButton.addEventListener("click", (e) => {
 	clearBoard();
 	newGame();
